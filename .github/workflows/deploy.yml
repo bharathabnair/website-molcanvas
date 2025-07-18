@@ -34,4 +34,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          user_name: bharathabnair
+          user_email: bharathabnair@gmail.com
 

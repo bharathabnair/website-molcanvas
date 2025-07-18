@@ -1,4 +1,4 @@
-name: Deploy Vite site to github pages
+name: Deploy Vite site to GitHub Pages
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
@@ -29,8 +29,9 @@ jobs:
       - name: Copy CNAME into dist
         run: cp CNAME dist/
 
-      - name: Deploy to github pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
-        with: 
-          github_token: ${{ secrets.GITHUB_TOKEN}}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+

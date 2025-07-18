@@ -19,7 +19,7 @@ export default function Home() {
             Bharath A. B. Nair
           </motion.h1>
           <motion.p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-300" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 1 }}>
-            Exploring the life of ancient proteins — from dipeptides to proteomes — across space, time, and society.
+            Exploring the life of proteins — from dipeptides to proteomes — across space, time, and society.
           </motion.p>
         </div>
       </section>

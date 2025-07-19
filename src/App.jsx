@@ -1,28 +1,24 @@
-import { motion } from "framer-motion";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home";
+import CV from "./components/CV";
+import Publications from "./components/Publications";
 
-export default function Home() {
+export default function App() {
   return (
-    <div className="relative bg-gray-900 text-white h-screen overflow-hidden font-sans">
-      <div className="absolute w-full h-full z-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_30%,#111827_90%)]">
-        <motion.div className="absolute w-5 h-5 bg-white/60 rounded-full" animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 12, ease: "linear" }} style={{ transformOrigin: "center", translateX: "120px" }} />
-        <motion.div className="absolute w-3 h-3 bg-white/60 rounded-full" animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 12, ease: "linear", delay: 3 }} style={{ transformOrigin: "center", translateX: "120px" }} />
-        <motion.div className="absolute w-2 h-2 bg-white/60 rounded-full" animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 12, ease: "linear", delay: 6 }} style={{ transformOrigin: "center", translateX: "120px" }} />
+    <Router>
+      <div className="min-h-screen font-sans bg-gray-900 text-white">
+        <nav className="flex justify-end space-x-6 p-6 text-sm uppercase tracking-wide">
+          <Link to="/" className="hover:text-gray-400">Home</Link>
+          <Link to="/cv" className="hover:text-gray-400">CV</Link>
+          <Link to="/publications" className="hover:text-gray-400">Publications</Link>
+        </nav>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cv" element={<CV />} />
+          <Route path="/publications" element={<Publications />} />
+        </Routes>
       </div>
-      <nav className="absolute top-6 right-8 text-sm space-x-6 uppercase tracking-wider z-10">
-        <a href="/research" className="hover:text-gray-400">Research</a>
-        <a href="/publications" className="hover:text-gray-400">Publications</a>
-        <a href="/cv" className="hover:text-gray-400">CV</a>
-      </nav>
-      <section className="flex items-center justify-center h-full text-center px-4 relative z-10">
-        <div>
-          <motion.h1 className="text-4xl md:text-6xl font-bold mb-4" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-            Bharath A. B. Nair
-          </motion.h1>
-          <motion.p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-300" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 1 }}>
-            Exploring the life of proteins — from dipeptides to proteomes — across space, time, and society.
-          </motion.p>
-        </div>
-      </section>
-    </div>
+    </Router>
   );
 }
